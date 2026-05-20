@@ -1,10 +1,10 @@
 <h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?font=Inter&weight=700&size=36&duration=3000&pause=1000&color=007ACC&center=true&vCenter=true&width=800&lines=ISW-521;Programaci%C3%B3n+en+Ambiente+Web+I;Universidad+T%C3%A9cnica+Nacional;Portafolio+de+Proyectos" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com/?font=Playfair+Display&weight=600&size=42&duration=5000&pause=2000&color=FFFFFF&center=true&vCenter=true&width=800&lines=Ingenier%C3%ADa+de+Software;Dise%C3%B1o+y+Arquitectura+Web;Portafolio+ISW-521" alt="Typing SVG Elegante" />
 </h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/last-commit/TU_USUARIO/TU_REPOSITORIO?style=flat-square&color=007ACC" alt="Last Commit">
-  <img src="https://img.shields.io/github/repo-size/TU_USUARIO/TU_REPOSITORIO?style=flat-square&color=1572B6" alt="Repo Size">
+  <img src="https://img.shields.io/github/last-commit/BSVS777/Portafolio-ISW521?style=flat-square&color=007ACC" alt="Last Commit">
+  <img src="https://img.shields.io/github/repo-size/BSVS777/Portafolio-ISW521?style=flat-square&color=1572B6" alt="Repo Size">
   <img src="https://img.shields.io/badge/Status-En_Desarrollo-success?style=flat-square" alt="Status">
 </p>
 
@@ -114,7 +114,7 @@ El código de este portafolio está organizado según los entregables del curso:
   <tr>
     <td width="50%" align="center">
       <b>Tracker de Commits</b><br><br>
-      <img src="https://github-readme-stats.vercel.app/api?username=TU_USUARIO&show_icons=true&theme=transparent&hide_border=true&title_color=007ACC&icon_color=007ACC&text_color=ffffff" alt="GitHub Stats" />
+      <img src="https://github-readme-stats.vercel.app/api?username=BSVS777&show_icons=true&theme=transparent&hide_border=true&title_color=007ACC&icon_color=007ACC&text_color=ffffff" alt="GitHub Stats" />
     </td>
     <td width="50%" align="center">
       <b>Avance del Curso</b><br>
