@@ -24,7 +24,7 @@ jobs:
 
       - name: Ejecutar script generador del SVG
         # Ruta actualizada: el script ahora vive oculto dentro de .github/scripts/
-        run: node .github/scripts/generar_grafica.js
+        run: node .github/scripts/generate_graph.js
 
       - name: Hacer commit y push de la nueva gráfica
         run: |

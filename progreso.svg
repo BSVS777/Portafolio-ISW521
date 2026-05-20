@@ -1,0 +1,5 @@
+<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#323330" stroke-width="10" />
+    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#007ACC" stroke-width="10" stroke-dasharray="251.32741228718345" stroke-dashoffset="251.32741228718345" transform="rotate(-90 50 50)" stroke-linecap="round" />
+    <text x="50" y="50" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="bold" fill="#007ACC" text-anchor="middle" dy="6">0%</text>
+  </svg>
