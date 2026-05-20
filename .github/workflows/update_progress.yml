@@ -1,0 +1,35 @@
+name: Actualizar Gráfica de Progreso
+
+on:
+  schedule:
+    # Se ejecuta a las 00:00 UTC todos los Martes (2) y Jueves (4)
+    - cron: "0 0 * * 2,4"
+  workflow_dispatch: # Permite ejecutar la acción manualmente desde la pestaña "Actions" en GitHub
+
+jobs:
+  update-chart:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # línea por si el script llega a necesitar dependencias externas (como npm install)
+      # - run: npm install
+
+      - name: Ejecutar script generador del SVG
+        # Ruta actualizada: el script ahora vive oculto dentro de .github/scripts/
+        run: node .github/scripts/generar_grafica.js
+
+      - name: Hacer commit y push de la nueva gráfica
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add progreso.svg
+          # Solo hace commit si hay cambios reales en el SVG
+          git diff --quiet && git diff --staged --quiet || (git commit -m "📊 chore: actualizar gráfica de progreso (auto)" && git push)
