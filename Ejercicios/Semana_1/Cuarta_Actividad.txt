@@ -1,0 +1,32 @@
+1. Identificación de componentes
+
+Campus -> Netflix -> GitHub -> Maravilla
+
+URL: campus.utn.ac.cr, www.netflix.com, api.github.io, app.maravilla.co.cr
+
+TLD: .cr, .com, .io, .cr
+
+SLD: utn, Netflix, GitHub, maravilla
+
+Subdominio: campus, www, api, app
+
+Tipo de TLD: ccTLD (Costa Rica), gTLD (Genérico), ccTLD (Territorio Británico), ccTLD (Costa Rica)
+
+
+2. Administración y Jerarquía
+
+- .cr Es gestionado por NIC Costa Rica, unidad de la academia nacional de ciencias
+- .com Es administrado por la empresa Verisign, bajo supervision de ICANN
+- No se necesita ICANN para registrar un subdomio porque este gestiona los niveles superiores
+
+
+3. El portal de egresados de la UTN
+
+No deben pagar ya que inicialmente ya son dueños del dominio utn.ac.cr, y con este pueden crear infinitos subdominios
+
+
+4. Registro A vs. Registro CNAME
+
+Registro A o Address: Más básico. Asocia un nombre de dominio directamente con una dirección IP física ej: miserver.com $\rightarrow$ 190.1.2.3
+
+Registro CNAME o Canonical Name: Es un alias. Apunta un nombre a otro nombre, no a una IP ej: www.miserver.com $\rightarrow$ miserver.com

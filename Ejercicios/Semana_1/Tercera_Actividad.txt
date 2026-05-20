@@ -1,0 +1,27 @@
+Parte A: Disección de la URL
+URL: https://api.github.com:443/repos/bryancs/isw521/issues?state=open&labels=semana1#comentarios
+
+Identificamos 6 componentes principales:
+
+Protocolo (Esquema): https, host (Dominio): api.github.com, puerto: 443 (El puerto estándar para HTTPS), ruta (Path): /repos/bryancs/isw521/issues, query String (Parámetros): state=open&labels=semana1, fragmento (Ancla): #comentarios.
+
+Parte B: Diseño de Clean URLs (UTN)
+Las Clean URLs o URLs amigables deben ser legibles, jerárquicas y evitar parámetros complejos (?id=123). Aquí te propongo una estructura lógica:
+
+1. Página de un curso (ISW-521, 2026-II, San Carlos):
+
+https://utn.ac.cr/sedes/san-carlos/2026-ii/cursos/isw-521
+
+Lógica: De lo general (sede) a lo específico
+
+2. Perfil de un estudiante (Carné 2022-0001):
+
+https://utn.ac.cr/estudiantes/2022-0001/perfil
+
+Lógica: Agrupa tipo de usuario y usa identificador único como parte de la ruta.
+
+3. Lista de materiales (Semana 3, ISW-521):
+
+https://utn.ac.cr/cursos/isw-521/semanas/3/materiales
+
+Lógica: Jerarquía donde los materiales pertenecen a una semana, la cual pertenece a un curso.

@@ -1,0 +1,21 @@
+1. Decisión de Topología (Internet, Intranet o Extranet)
+(A) Sitio de información pública: Internet.
+Debe ser accesible para cualquier ciudadano desde cualquier lugar sin restricciones de red privada.
+
+(B) Sistema de gestión de planillas: Intranet.
+Al manejar datos sensibles de salarios y RRHH, debe limitarse exclusivamente a la red interna.
+
+(C) Portal para empresas constructoras: Extranet.
+Permite que usuarios externos específicos (empresas) accedan a información privada.
+
+2. ¿Cuál requiere más inversión en seguridad?
+El sistema (B) de gestión de planillas (Intranet).
+
+¿Por qué?
+ El sitio público (A) recibe más ataques externos, el sistema de planillas maneja la información más crítica. Una brecha aquí implica consecuencias legales y financieras masivas. Por lo tanto requiere capas de cifrado interno, auditorías de acceso estrictas y protocolos de respaldo mucho más robustos que un sitio informativo.
+
+3. ¿Podría un mismo servidor físico alojar los tres de forma segura?
+Sí, es posible.
+
+Conceptualmente se logra mediante la Virtualización o Contenedores.
+No se instalan en un mismo sistema operativo, se crean "servidores virtuales" (VMs) o instancias aisladas (como Docker). Esto garantiza que cada sistema tenga su propio entorno de seguridad independiente; si web público (A) es comprometido, el atacante no puede saltar al sistema de planillas (B) porque están aislados.

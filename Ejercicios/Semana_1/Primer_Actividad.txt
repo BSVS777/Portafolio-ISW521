@@ -1,0 +1,17 @@
+1. ¿Es correcto lo que dijo el Rector? ¿Por qué la distinción del director de TI es técnicamente importante?
+
+¿Es correcto el Rector?
+Podriamos decir que si, pero muy es muy pachuco o coloquial, y queda ambiguo. 
+Aquí la distinción del Director de TI es sumamente relevante porque diferencia qué es Internet de WWW, internet siendo la infraestructura global y WWW solo uno de los muchos servicios de internet usando el protocolo HTTP
+
+
+2. Si usan HTTP sobre Internet pero solo para usuarios internos de la UTN, ¿están usando Internet o la WWW, o ambos?
+La respuesta resumida es: Ambos
+
+Usan WWWW debido a que el protocolo HTTP es el lenguaje fundamental de la WWWW
+Usan Internet porque están utilizando la infraestructura global de red para usuarios
+
+
+3. ¿Qué organismo (W3C o IETF) define los estándares más relevantes para este sistema de notas? Justifica.
+Para un sistema de notas (que es una aplicación interactiva), ambos son relevantes, pero sus roles se dividen así:
+
