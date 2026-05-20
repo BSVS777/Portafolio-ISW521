@@ -1,4 +1,6 @@
-# 🌐 Portafolio y Proyecto Integrador - Programación en Ambiente Web I
+<h1 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com/?font=Inter&weight=700&size=36&duration=3000&pause=1000&color=007ACC&center=true&vCenter=true&width=800&lines=ISW-521;Programaci%C3%B3n+en+Ambiente+Web+I;Universidad+T%C3%A9cnica+Nacional;Portafolio+de+Proyectos" alt="Typing SVG" />
+</h1>
 
 Bienvenido a mi repositorio principal para el curso ISW-521[cite: 3, 4]. Este espacio sirve como documentación de mi aprendizaje, registro de prácticas y base del proyecto integrador.
 
@@ -36,6 +38,48 @@ Dominar el ecosistema de desarrollo web moderno, asegurando un entendimiento pro
 - [ ] **Unidad III: Lenguaje de scripting.** JavaScript ES6+ moderno, manipulación del DOM, programación asíncrona (Promises, async/await), y herramientas de debugging del navegador.
 - [ ] **Unidad IV: Librerías y frameworks.** Integración de TypeScript, manejo de variables de entorno, anatomía del JWT, prevención de XSS y CSRF, y testing con Jest/Vitest y Testing Library.
 - [ ] **Unidad V: Interoperabilidad con servicios.** Consumo y respuesta de solicitudes (sincrónicas/asincrónicas), semántica HTTP (REST), JSON como contrato de datos y manejo del estado global.
+
+### 📚 Detalle de Competencias y Estándares
+
+<details>
+  <summary><b>🌐 Infraestructura y Herramientas de Desarrollo</b></summary>
+  <ul>
+    <li><b>Protocolos y Red:</b> TCP/IP, HTTP, HTTPS, TLS, DNS, resolución de peticiones y CORS.</li>
+    <li><b>Servidores:</b> Host, puertos y arquitectura Serverless.</li>
+    <li><b>Control de Versiones:</b> Git, GitHub, ramas, Pull Requests y resolución de conflictos.</li>
+    <li><b>Tooling:</b> Vite, npm, yarn, package.json y Node.js.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><b>🎨 Estructura, Diseño Web y Accesibilidad</b></summary>
+  <ul>
+    <li><b>Maquetación:</b> HTML5 Semántico, CSS3, Flexbox y CSS Grid.</li>
+    <li><b>Diseño Adaptativo:</b> Mobile-first, Media Queries y Viewport.</li>
+    <li><b>Sistemas y Estándares:</b> Variables CSS, SASS/SCSS, y fundamentos de Tailwind/Bootstrap.</li>
+    <li><b>Accesibilidad:</b> Estándares WCAG 2.1, principios POUR, roles ARIA y navegación por teclado.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><b>⚙️ Lógica de Cliente y APIs del Navegador</b></summary>
+  <ul>
+    <li><b>JavaScript Moderno (ES6+):</b> Destructuring, spread/rest, optional chaining, nullish coalescing y ESModules.</li>
+    <li><b>APIs Nativas:</b> Manipulación del DOM, BOM, Geolocation API y manejo de eventos.</li>
+    <li><b>Asincronismo:</b> Promises, async/await y Fetch API.</li>
+    <li><b>Persistencia y Rendimiento:</b> localStorage, sessionStorage, Cookies, DevTools y Lighthouse.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><b>🛡️ Frameworks, Tipado, Seguridad y Servicios Web</b></summary>
+  <ul>
+    <li><b>Tipado Estricto:</b> TypeScript (interfaces, genéricos, decoradores y tsconfig.json).</li>
+    <li><b>Seguridad:</b> JSON Web Tokens (JWT), mitigación de XSS y CSRF, y uso de archivos .env.</li>
+    <li><b>Interoperabilidad:</b> Arquitectura REST, semántica HTTP, JSON y consumo con Axios/Fetch.</li>
+    <li><b>Estado y Testing:</b> Context API, conceptos de caché remota y pruebas automatizadas con Jest/Vitest.</li>
+  </ul>
+</details>
 
 ---
 
