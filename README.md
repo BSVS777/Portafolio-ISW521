@@ -2,12 +2,20 @@
   <img src="https://readme-typing-svg.herokuapp.com/?font=Inter&weight=700&size=36&duration=3000&pause=1000&color=007ACC&center=true&vCenter=true&width=800&lines=ISW-521;Programaci%C3%B3n+en+Ambiente+Web+I;Universidad+T%C3%A9cnica+Nacional;Portafolio+de+Proyectos" alt="Typing SVG" />
 </h1>
 
-Bienvenido a mi repositorio principal para el curso ISW-521[cite: 3, 4]. Este espacio sirve como documentación de mi aprendizaje, registro de prácticas y base del proyecto integrador.
+<p align="center">
+  <img src="https://img.shields.io/github/last-commit/TU_USUARIO/TU_REPOSITORIO?style=flat-square&color=007ACC" alt="Last Commit">
+  <img src="https://img.shields.io/github/repo-size/TU_USUARIO/TU_REPOSITORIO?style=flat-square&color=1572B6" alt="Repo Size">
+  <img src="https://img.shields.io/badge/Status-En_Desarrollo-success?style=flat-square" alt="Status">
+</p>
+
+Bienvenido a mi repositorio principal para el curso ISW-521. Este espacio sirve como documentación de mi aprendizaje, registro de prácticas y base del proyecto integrador.
+
+---
 
 ## 🎯 Objetivos
 
 ### Objetivo General
-Desarrollar aplicaciones de software en ambiente web, utilizando estándares internacionales, patrones de diseño, modelos, protocolos y buenas prácticas, que permitan la visualización, manipulación y acceso seguro a fuentes externas de información desde cualquier dispositivo[cite: 20].
+Desarrollar aplicaciones de software en ambiente web, utilizando estándares internacionales, patrones de diseño, modelos, protocolos y buenas prácticas, que permitan la visualización, manipulación y acceso seguro a fuentes externas de información desde cualquier dispositivo.
 
 ### Objetivo Profesional
 Aplicar metodologías de la industria para crear interfaces web de alta calidad, gestionando eficientemente librerías, frameworks del lado del cliente y consumiendo servicios web mediante el intercambio de datos en arquitecturas REST.
@@ -31,6 +39,21 @@ Dominar el ecosistema de desarrollo web moderno, asegurando un entendimiento pro
 
 ---
 
+## 📁 Estructura del Repositorio
+
+El código de este portafolio está organizado según los entregables del curso:
+
+```
+📦 ISW-521-Portafolio
+ ┣ 📂 Laboratorios        # Prácticas aplicadas (Lab 1 y 2)
+ ┣ 📂 Quices              # Evaluaciones cortas
+ ┣ 📂 Investigaciones     # Demos técnicas y código de respaldo
+ ┣ 📂 Proyecto_Integrador # Código fuente del proyecto final (40%)
+ ┣ 📂 Diario_IA           # Registro de prompts y apoyo con Inteligencia Artificial
+ ┗ 📜 README.md           # Documentación principal
+```
+---
+
 ## 🗺 Roadmap de Aprendizajes
 
 - [ ] **Unidad I: Componentes de las aplicaciones web.** Protocolos HTTP/HTTPS, configuración de CORS, control de versiones con Git/GitHub, y tooling moderno como npm, yarn y Vite.
@@ -38,6 +61,8 @@ Dominar el ecosistema de desarrollo web moderno, asegurando un entendimiento pro
 - [ ] **Unidad III: Lenguaje de scripting.** JavaScript ES6+ moderno, manipulación del DOM, programación asíncrona (Promises, async/await), y herramientas de debugging del navegador.
 - [ ] **Unidad IV: Librerías y frameworks.** Integración de TypeScript, manejo de variables de entorno, anatomía del JWT, prevención de XSS y CSRF, y testing con Jest/Vitest y Testing Library.
 - [ ] **Unidad V: Interoperabilidad con servicios.** Consumo y respuesta de solicitudes (sincrónicas/asincrónicas), semántica HTTP (REST), JSON como contrato de datos y manejo del estado global.
+
+---
 
 ### 📚 Detalle de Competencias y Estándares
 
