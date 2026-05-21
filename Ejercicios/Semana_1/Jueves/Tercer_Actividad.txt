@@ -1,0 +1,25 @@
+a. ¿Quién emitió el certificado? ¿Es una Root CA o Intermediate CA?
+
+Respuesta: Lo emitió Let's Encrypt, específicamente la autoridad identificada como E8. Es una Intermediate CA (Autoridad Certificadora Intermedia).
+
+
+b. ¿Cuándo vence el certificado?
+
+Respuesta: Vence el 2 de agosto de 2026 a las 07:33:49 UTC.
+
+
+c. ¿Qué versión de TLS está usando tu conexión?
+
+TLS 1.3
+
+
+d. ¿Qué cipher suite está en uso?
+
+X25519
+
+
+e. ¿Qué pasaría si el certificado estuviera vencido? ¿Podría seguir siendo 'seguro'?
+
+¿Qué pasaría? El navegador interceptaría la conexión y mostraría una pantalla de advertencia como: "error tipo NET::ERR_CERT_DATE_INVALID", bloqueando el acceso al usuario.
+
+¿Podría seguir siendo seguro? Sí, pero no. El canal seguiría estando cifrado. La criptografía simétrica seguiría ocultando los datos de cualquiera que intente espiar el tráfico en la red (nadie podría leer los paquetes). Pero la autenticidad de la página no se mantiene.

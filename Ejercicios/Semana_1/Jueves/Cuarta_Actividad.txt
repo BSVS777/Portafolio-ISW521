@@ -1,0 +1,25 @@
+1. ¿Cuánto tiempo tardó la resolución DNS?
+Dato de la imagen: 22 µs (microsegundos).
+
+Análisis para tu clase: ¡Es un tiempo ridículamente rápido! Toma en cuenta que son microsegundos, no milisegundos (equivale a 0.022 ms). Esto nos dice que, aunque desactivaste la caché del navegador, el sistema operativo (Windows/Linux) o el router de tu red ya tenían guardada la dirección IP de la UTN en su propia caché DNS local, por lo que no tuvo que ir a preguntarle a un servidor DNS externo en internet.
+
+2. ¿Cuánto tardó el TCP Handshake?
+Dato de la imagen: 168.13 ms (Initial connection).
+
+Análisis para tu clase: Este es el tiempo que tardó el famoso viaje de tres vías (SYN, SYN-ACK, ACK) entre tu computadora en la sede de San Carlos y el servidor principal donde esté alojada la página de la universidad.
+
+3. ¿Cuánto tardó el TLS Handshake?
+Dato de la imagen: 85.42 ms (SSL).
+
+Análisis para tu clase: Es el tiempo que tomó negociar la seguridad, intercambiar el certificado (el de Let's Encrypt que vimos antes) y acordar las llaves de cifrado. Un detalle técnico interesante aquí es que el TLS tardó la mitad del tiempo que el TCP. Esto es un excelente indicador de que el servidor probablemente está usando TLS 1.3 (que requiere un solo viaje de ida y vuelta) o que usó reanudación de sesión.
+
+
+
+3. Tienes un AdBlocker o filtro de privacidad
+Fíjate en las dos peticiones rojas abajo (js?id=UA-66529013-1 y page.js) que tienen el estado (blocked:other).
+El script que empieza con "UA-" es el código clásico de Google Analytics. El navegador lo bloqueó activamente. Esto es un síntoma claro de que estás usando una extensión como uBlock Origin, AdBlock, o tienes la configuración de privacidad del navegador en "Estricto".
+
+
+4. El Total de Recursos: 215, mayormente hhtp 1, algunos 2 y ningun HTTP3
+
+5. actividades-bg.png pesa 1,572 KB, si se puede optimizar a expensas de disminuir la calidad

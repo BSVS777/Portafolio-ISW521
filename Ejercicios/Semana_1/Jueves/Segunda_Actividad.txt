@@ -1,0 +1,44 @@
+1. ¿Qué beneficio concreto gana el e-commerce al migrar a HTTP/2?
+El beneficio principal: Multiplexación.
+
+En HTTP/1.1: El navegador tiene que abrir múltiples conexiones TCP (normalmente 6) para descargar, CSS y JS.
+
+En HTTP/2: Todo viaja por una sola conexión TCP. Puede pedir cientos de recursos.
+
+Otros beneficios: Compresión de cabeceras (HPACK), y el hecho de ser un protocolo binario.
+
+
+2. ¿Por qué HTTP/2 no elimina completamente el HOL Blocking?
+HTTP/2 puede eliminar el Head-of-Line Blocking a nivel de aplicación, pero no a nivel de transporte.
+
+HTTP/2 sigue corriendo sobre TCP.
+
+TCP ve todos los datos como un único flujo de bytes. Si un paquete se pierde TCP detiene absolutamente todo hasta que ese paquete se retransmita.
+
+Aunque HTTP/2 tenga carriles/streams separados, si el túnel de TCP se bloquea, todos los carriles se detienen.
+
+
+3. ¿Tiene sentido saltar directamente a HTTP/3? Consideraciones técnicas.
+Sí lo tiene, especialmente para un e-commerce con gran afluencia de usuarios y redes inestables.
+
+Consideraciones a evaluar:
+
+Protocolo UDP: HTTP/3 usa QUIC que corre sobre UDP. Muchos firewalls corporativos bloquean el tráfico UDP en el puerto 443 por seguridad por lo que llevaria a hacer fallback a HTTP/2.
+
+Carga de CPU: El cifrado en HTTP/3 que viene integrado en QUIC es más exigente para el procesador del servidor.
+
+Soporte de Infraestructura: El Balanceador de Carga o su CDN? Si no, la implementación será un dolor de cabeza.
+
+4. ¿Cómo verificarían en producción qué versión de HTTP está usando un sitio?
+
+Método A Browser: 
+1-  Abrir DevTools.
+2-  Ir a la pestaña Network.
+3-  Clic derecho en los encabezados de la tabla y activar la columna Protocol.
+4-  Se veran etiquetas como h2 (HTTP/2), h3 (HTTP/3) o http/1.1.
+
+Método B en terminal:
+
+Bash
+curl -I https://www.google.com
+La primera línea de la respuesta es algo como HTTP/2 o HTTP/1.1. Para HTTP/3, se puede usar curl --http3.

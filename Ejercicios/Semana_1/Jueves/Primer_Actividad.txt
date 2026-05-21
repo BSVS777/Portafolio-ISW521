@@ -1,0 +1,35 @@
+1. ¿Es técnicamente correcto el argumento de velocidad? ¿Por qué sí o por qué no?
+Sí, es correcto, pero UDP es más rápido porque:
+
+No tiene handshake: Empieza a enviar datos de inmediato no necesita conexion.
+
+Menor encabezado: Los paquetes UDP son más ligeros (8 bytes vs. 20+ de TCP).
+
+Sin esperas: No espera confirmaciones "ACKs" ni reenvía nada.
+
+Sin embargo, para archivos de configuración críticos, esa velocidad es irrelevante si el archivo llega incompleto o corrupto, aquí la integridad es más valiosa.
+
+2. ¿Qué mecanismos de TCP perderías al cambiar a UDP?
+Al pasar a UDP, dejas de tener "red de seguridad". Perderías:
+
+-Fiabilidad: UDP no lo reenvía. El archivo de configuración llegaría con "huecos".
+
+-Ordenamiento: En TCP llegan en orden (1, 2, 3). En UDP podrían llegar desordenados (3, 1, 2).
+
+-Control de flujo y congestión: TCP detecta si la red está saturada. UDP sigue enviando datos a ciegas.
+
+-Detección de errores: UDP tiene un checksum básico pero no tiene la robustez de recuperación de errores de TCP.
+
+
+3. ¿En qué escenario SÍ tendría sentido usar UDP?
+UDP brilla donde la baja latencia es más importante que la perfección de los datos.
+
+-Ejemplo concreto: Streaming de video en vivo o VoIP (llamadas de voz). * Si estás en una llamada de Zoom y se pierde un paquete de audio, prefieres escuchar un pequeño "glitch" y seguir con la conversación en tiempo real, antes que detener toda la llamada por 2 segundos esperando a que el paquete perdido llegue (que es lo que haría TCP).
+
+
+4. ¿Cómo afecta el 3-Way Handshake si los microservicios hacen muchas conexiones cortas?
+El 3-Way Handshake (SYN, SYN-ACK, ACK) añade latencia por cada nueva conexión.
+
+-Si la conexión es para enviar un archivo minúsculo (ej. 1KB) y luego se cierra, el tiempo que pasas "saludando" (el handshake) puede ser mayor que el tiempo que pasas enviando los datos reales.
+
+-En microservicios que se consultan miles de veces por segundo, esto genera una sobrecarga enorme. Por eso, en lugar de usar UDP, la solución profesional suele ser TCP Keep-Alive o HTTP Persistent Connections, para reutilizar un saludo ya hecho en lugar de hacer uno nuevo cada vez.
