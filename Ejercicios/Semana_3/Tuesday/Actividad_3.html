@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Horario de Clases ISW</title>
+</head>
+<body bgcolor="#1f2933" text="white">
+
+    <h1>Actividad — Tema 5: Tablas</h1>
+
+    <p>
+        <i><font color="#7fffc0">Codifica el horario de clases de ISW</font></i>
+    </p>
+
+    <table bgcolor="#fff200" cellpadding="10">
+        <tr>
+            <td>
+                <b><font color="white">ACTIVIDAD</font></b>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <p>
+        Construye en HTML la siguiente tabla de horario. Usa 
+        <b>colspan</b> donde corresponda para la celda "Receso".
+    </p>
+
+    <table border="1" width="100%" cellpadding="15" cellspacing="0">
+        <tr bgcolor="#78b8f5">
+            <th align="left">Hora</th>
+            <th align="left">Lunes</th>
+            <th align="left">Martes</th>
+            <th align="left">Miércoles</th>
+        </tr>
+
+        <tr bgcolor="#5f6873">
+            <td><b>7:00</b></td>
+            <td><font color="#9fffc7">ISW-521</font></td>
+            <td><font color="#9fffc7">ISW-311</font></td>
+            <td>Libre</td>
+        </tr>
+
+        <tr bgcolor="#8d88a8">
+            <td bgcolor="#5f6873"><b>9:00</b></td>
+            <td colspan="3">
+                <b><font color="yellow">Receso</font></b>
+            </td>
+        </tr>
+
+        <tr bgcolor="#5f6873">
+            <td><b>10:00</b></td>
+            <td><font color="#9fffc7">ISW-421</font></td>
+            <td><font color="#9fffc7">ISW-521</font></td>
+            <td><font color="#9fffc7">ISW-311</font></td>
+        </tr>
+    </table>
+
+</body>
+</html>

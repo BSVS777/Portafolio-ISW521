@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Galería Multimedia</title>
+</head>
+<body>
+
+    <h1>Galería Multimedia</h1>
+
+    <h2>Imagen principal</h2>
+
+    <picture>
+        <source srcset="imagen.webp" type="image/webp">
+        <source srcset="imagen.jpg" type="image/jpeg">
+        <img src="imagen.jpg" alt="Imagen principal del curso" title="Imagen principal del curso" width="400">
+    </picture>
+
+    <h2>Video de la clase</h2>
+
+    <video controls poster="poster.jpg" width="500">
+        <source src="clase.mp4" type="video/mp4">
+        <source src="clase.webm" type="video/webm">
+        Tu navegador no soporta video.
+    </video>
+
+    <h2>Audio del podcast</h2>
+
+    <audio controls>
+        <source src="podcast.mp3" type="audio/mpeg">
+        <source src="podcast.ogg" type="audio/ogg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <h2>Mapa de ubicación</h2>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=TU_ENLACE_AQUI"
+        width="500"
+        height="300"
+        title="Mapa de ubicación del curso"
+        sandbox="allow-scripts allow-same-origin allow-popups"
+        loading="lazy">
+    </iframe>
+
+</body>
+</html>
