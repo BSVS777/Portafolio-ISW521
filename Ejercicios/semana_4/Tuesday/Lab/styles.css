@@ -1,0 +1,633 @@
+/* ============================================================
+   AcueductosIoT Dashboard — styles.css
+   ISW-521 Lab3 · BSVS Monitoring Core
+   ============================================================ */
+
+/* === Custom Properties ===================================== */
+:root {
+  --bg-main:    #07111f;
+  --bg-panel:   #102541;
+  --bg-card:    #0d213a;
+  --cyan:       #18d6d0;
+  --green:      #28e17d;
+  --orange:     #f4a51c;
+  --red:        #ff4d5e;
+  --text-main:  #e8f3ff;
+  --text-muted: #8aa6c5;
+  --border-soft: rgba(24, 214, 208, 0.35);
+}
+
+/* === Reset / Base =========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* === Educational Flex Labels ================================ */
+.ej-label {
+  display: block;
+  font-size: 0.68rem;
+  font-family: monospace;
+  letter-spacing: 0.07em;
+  color: var(--cyan);
+  background-color: rgba(24, 214, 208, 0.07);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  padding: 3px 10px;
+  text-align: center;
+}
+
+/* === EJ1 — Navbar =========================================== */
+
+/* justify-content: space-between reparte el espacio libre del eje principal
+   entre los hijos, empujando el logo al extremo izquierdo, el botón al extremo
+   derecho y dejando los links centrados en el espacio que queda entre ambos. */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 0 28px;
+}
+
+.nav-logo span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.04em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+.btn-logout {
+  background-color: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-logout:hover {
+  background-color: rgba(24, 214, 208, 0.1);
+  color: var(--cyan);
+}
+
+/* === EJ3 — Three-column Dashboard Layout =================== */
+.dashboard-layout {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - 60px);
+}
+
+/* === Sidebar ================================================ */
+
+/* flex: 1 no es lo mismo que flex-grow: 1.
+   flex: 1 equivale a flex-grow:1 + flex-shrink:1 + flex-basis:0.
+   flex-grow: 1 solo controla el crecimiento; deja flex-shrink y flex-basis
+   en sus valores por defecto (1 y auto, respectivamente).
+   Para que el sidebar nunca sea menor a 180px se usa min-width: 180px. */
+.sidebar {
+  flex: 1;
+  min-width: 180px;
+  background-color: var(--bg-panel);
+  border-right: 1px solid var(--border-soft);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-title {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.sidebar-link a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-link a:hover,
+.sidebar-link.active a {
+  background-color: rgba(24, 214, 208, 0.1);
+  color: var(--cyan);
+}
+
+.sidebar-version {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-soft);
+}
+
+/* === Main Content ========================================== */
+
+/* Si main-content cambia de flex: 3 a flex: 5, el área central recibe más
+   porciones del espacio libre disponible y las columnas laterales
+   (sidebar y alert-panel) se ven visualmente más estrechas. */
+.main-content {
+  flex: 3;
+  padding: 20px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.main-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.live-badge {
+  background-color: rgba(40, 225, 125, 0.12);
+  color: var(--green);
+  border: 1px solid rgba(40, 225, 125, 0.4);
+  border-radius: 20px;
+  padding: 2px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* === EJ2 — Sensor Grid ===================================== */
+
+/* align-items alinea los elementos dentro de cada fila del eje cruzado
+   (entre tarjetas en la misma fila). align-content distribuye el espacio
+   entre las filas cuando hay flex-wrap activo y existe espacio vertical
+   disponible en el contenedor. Son propiedades distintas. */
+.sensor-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sensor-card {
+  flex-basis: calc(33.333% - 16px);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.sensor-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.sensor-card h3 {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.sensor-value {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--green);
+  font-family: monospace;
+}
+
+.sensor-card.status-warning .sensor-value {
+  color: var(--orange);
+}
+
+.sensor-card.status-info .sensor-value {
+  color: var(--cyan);
+}
+
+.sensor-card.status-critical .sensor-value {
+  color: var(--red);
+}
+
+.sensor-label {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+}
+
+.sensor-bar {
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.sensor-bar-fill {
+  height: 100%;
+  background-color: var(--green);
+  border-radius: 2px;
+}
+
+.sensor-bar-fill.fill-warning { background-color: var(--orange); }
+.sensor-bar-fill.fill-info    { background-color: var(--cyan); }
+
+/* Bar width utilities */
+.w-73  { width: 73%; }
+.w-56  { width: 56%; }
+.w-80  { width: 80%; }
+.w-65  { width: 65%; }
+.w-50  { width: 50%; }
+.w-100 { width: 100%; }
+
+/* === Chart ================================================= */
+.chart-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.chart-header h2 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.chart-current {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--orange);
+  font-family: monospace;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 120px;
+  display: block;
+}
+
+/* SVG element styles */
+.chart-area-fill {
+  fill: url(#chart-gradient);
+}
+
+.chart-line {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 2;
+}
+
+.chart-threshold-line {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 1;
+  stroke-dasharray: 6 4;
+  opacity: 0.6;
+}
+
+.chart-dot {
+  fill: var(--red);
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.chart-labels span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+.chart-threshold-label {
+  font-size: 0.68rem;
+  color: var(--orange);
+  margin-top: 4px;
+  font-family: monospace;
+}
+
+/* === Prediction Card (personal brand) ====================== */
+.prediction-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(24, 214, 208, 0.04);
+  border: 1px solid rgba(24, 214, 208, 0.3);
+  border-left: 3px solid var(--cyan);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.prediction-content h3 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+
+.prediction-content p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.prediction-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 58px;
+  flex-shrink: 0;
+}
+
+.prediction-score strong {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--orange);
+  font-family: monospace;
+  line-height: 1;
+}
+
+.prediction-score span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* === Event History (personal brand) ======================== */
+.event-history {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.event-history h3 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.event-history ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.event-history li {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.event-history li:last-child {
+  border-bottom: none;
+}
+
+.event-time {
+  color: var(--cyan);
+  font-family: monospace;
+  min-width: 42px;
+  flex-shrink: 0;
+}
+
+.event-desc {
+  color: var(--text-muted);
+}
+
+/* === Alert Panel =========================================== */
+.alert-panel {
+  flex: 1;
+  min-width: 180px;
+  background-color: var(--bg-panel);
+  border-left: 1px solid var(--border-soft);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.alert-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-panel-header h2 {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--text-main);
+}
+
+.alert-count-badge {
+  background-color: var(--red);
+  color: #fff;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  border-left: 3px solid transparent;
+}
+
+.alert-item.alert-critical {
+  background-color: rgba(255, 77, 94, 0.1);
+  border-left-color: var(--red);
+  color: var(--red);
+}
+
+.alert-item.alert-warning {
+  background-color: rgba(244, 165, 28, 0.1);
+  border-left-color: var(--orange);
+  color: var(--orange);
+}
+
+.alert-item.alert-ok {
+  background-color: rgba(40, 225, 125, 0.07);
+  border-left-color: var(--green);
+  color: var(--green);
+}
+
+.alert-icon {
+  flex-shrink: 0;
+}
+
+.alert-countdown {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 12px;
+  text-align: center;
+}
+
+.alert-countdown p {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.countdown-time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cyan);
+  font-family: monospace;
+}
+
+/* === Footer ================================================ */
+.dashboard-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--bg-panel);
+  border-top: 1px solid var(--border-soft);
+  padding: 12px 28px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* === EJ4 — Responsive Mobile =============================== */
+
+/* min-height: 100vh permite que el body crezca si el contenido supera la
+   altura de la pantalla. height: 100vh fijaría el alto exactamente a la
+   pantalla y recortaría cualquier contenido que se desborde por abajo. */
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .alert-panel {
+    flex: none;
+    width: 100%;
+    min-height: auto;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 16px;
+  }
+
+  .sensor-card {
+    flex-basis: 100%;
+  }
+
+  .prediction-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Tablet breakpoint */
+@media (min-width: 769px) and (max-width: 992px) {
+  .sensor-card {
+    flex-basis: calc(50% - 16px);
+  }
+}

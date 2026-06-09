@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AcueductosIoT — Dashboard de Monitoreo Hídrico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="ej-label" role="note">EJERCICIO 1 — DISPLAY:FLEX · JUSTIFY-CONTENT:SPACE-BETWEEN · ALIGN-ITEMS:CENTER</div>
+
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="nav-logo">
+      <span>💧 AcueductosIoT</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Sensores</a></li>
+      <li><a href="#">Alertas</a></li>
+      <li><a href="#">Reportes</a></li>
+    </ul>
+    <button class="btn-logout" type="button">Cerrar Sesión</button>
+  </nav>
+
+  <div class="dashboard-layout">
+
+    <aside class="sidebar" aria-label="Menú lateral">
+      <div class="ej-label" role="note">FLEX: 1</div>
+      <nav class="sidebar-nav" aria-label="Secciones del dashboard">
+        <h2 class="sidebar-title">MENÚ</h2>
+        <ul class="sidebar-links">
+          <li class="sidebar-link active"><a href="#">📊 Resumen</a></li>
+          <li class="sidebar-link"><a href="#">💧 Tanques</a></li>
+          <li class="sidebar-link"><a href="#">⚡ Presiones</a></li>
+          <li class="sidebar-link"><a href="#">🧪 Calidad</a></li>
+          <li class="sidebar-link"><a href="#">🗺️ Mapa Red</a></li>
+          <li class="sidebar-link"><a href="#">⚙️ Configuración</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-version">v2.4.1 · Online</div>
+    </aside>
+
+    <main class="main-content">
+      <div class="ej-label" role="note">FLEX: 3 — SENSOR GRID (EJERCICIO 2) + GRÁFICO</div>
+
+      <div class="main-header">
+        <h1 class="main-title">Monitoreo en Tiempo Real</h1>
+        <span class="live-badge">● En vivo</span>
+      </div>
+
+      <div class="ej-label" role="note">EJERCICIO 2 — FLEX-WRAP:WRAP · GAP:16PX · FLEX-BASIS:CALC(33%...)</div>
+
+      <section class="sensor-grid" aria-label="Sensores IoT principales">
+        <div class="sensor-card status-normal">
+          <h3>💧 Nivel Tanque Principal</h3>
+          <p class="sensor-value">73%</p>
+          <p class="sensor-label">✓ Sector A · 2 min</p>
+          <div class="sensor-bar">
+            <div class="sensor-bar-fill w-73"></div>
+          </div>
+        </div>
+        <div class="sensor-card status-warning">
+          <h3>⚡ Presión Red Calle 2</h3>
+          <p class="sensor-value">28 PSI</p>
+          <p class="sensor-label">⚠ Mín: 30 PSI · 1 min</p>
+          <div class="sensor-bar">
+            <div class="sensor-bar-fill fill-warning w-56"></div>
+          </div>
+        </div>
+        <div class="sensor-card status-normal">
+          <h3>🧪 Cloro Residual</h3>
+          <p class="sensor-value">0.4 mg/L</p>
+          <p class="sensor-label">✓ Rango: 0.3–0.5 · 3 min</p>
+          <div class="sensor-bar">
+            <div class="sensor-bar-fill w-80"></div>
+          </div>
+        </div>
+        <div class="sensor-card status-info">
+          <h3>🌊 Caudal Naciente Sur</h3>
+          <p class="sensor-value">142 L/min</p>
+          <p class="sensor-label">→ Normal · 4 min</p>
+          <div class="sensor-bar">
+            <div class="sensor-bar-fill fill-info w-65"></div>
+          </div>
+        </div>
+        <div class="sensor-card status-info">
+          <h3>🌡️ Temperatura Agua</h3>
+          <p class="sensor-value">18.2°C</p>
+          <p class="sensor-label">ℹ Normal · 5 min</p>
+          <div class="sensor-bar">
+            <div class="sensor-bar-fill fill-info w-50"></div>
+          </div>
+        </div>
+        <div class="sensor-card status-normal">
+          <h3>🔧 Válvula Emergencia</h3>
+          <p class="sensor-value">CERRADA</p>
+          <p class="sensor-label">✓ Estado normal · 1 min</p>
+          <div class="sensor-bar">
+            <div class="sensor-bar-fill w-100"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chart-card" aria-labelledby="chart-title">
+        <div class="chart-header">
+          <h2 id="chart-title">Presión de Red — Últimas 6 horas</h2>
+          <span class="chart-current">28 PSI</span>
+        </div>
+        <div class="chart-area">
+          <svg class="chart-svg" viewBox="0 0 600 120" role="img" aria-label="Gráfico de presión de red últimas 6 horas">
+            <defs>
+              <linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#18d6d0" stop-opacity="0.3"></stop>
+                <stop offset="100%" stop-color="#18d6d0" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <path class="chart-area-fill" d="M0,60 L80,45 L160,50 L240,40 L300,55 L360,35 L420,30 L480,40 L540,50 L600,65 L600,120 L0,120 Z"></path>
+            <polyline class="chart-line" points="0,60 80,45 160,50 240,40 300,55 360,35 420,30 480,40 540,50 600,65"></polyline>
+            <line class="chart-threshold-line" x1="0" y1="55" x2="600" y2="55"></line>
+            <circle class="chart-dot" cx="600" cy="65" r="5"></circle>
+          </svg>
+          <div class="chart-labels" aria-hidden="true">
+            <span>00:00</span>
+            <span>01:00</span>
+            <span>02:00</span>
+            <span>03:00</span>
+            <span>04:00</span>
+            <span>05:00</span>
+            <span>Ahora</span>
+          </div>
+          <p class="chart-threshold-label">— Umbral mín. 30 PSI</p>
+        </div>
+      </section>
+
+      <section class="prediction-card" aria-labelledby="prediction-title">
+        <div class="prediction-content">
+          <h3 id="prediction-title">🧠 Predicción Inteligente</h3>
+          <p>Riesgo estimado de baja presión en los próximos 30 min. Revisar Calle 2 y Sector B por posible fuga, obstrucción o demanda anormal.</p>
+        </div>
+        <div class="prediction-score">
+          <strong>68%</strong>
+          <span>riesgo</span>
+        </div>
+      </section>
+
+      <section class="event-history" aria-labelledby="history-title">
+        <h3 id="history-title">📜 Historial de Eventos</h3>
+        <ul>
+          <li>
+            <span class="event-time">05:13</span>
+            <span class="event-desc">Presión bajó a 28 PSI en Calle 2.</span>
+          </li>
+          <li>
+            <span class="event-time">05:10</span>
+            <span class="event-desc">Cloro residual estable.</span>
+          </li>
+          <li>
+            <span class="event-time">05:03</span>
+            <span class="event-desc">Tanque principal actualizado.</span>
+          </li>
+          <li>
+            <span class="event-time">04:58</span>
+            <span class="event-desc">Caudal normalizado.</span>
+          </li>
+          <li>
+            <span class="event-time">04:47</span>
+            <span class="event-desc">Sistema sincronizado.</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <aside class="alert-panel" aria-label="Panel de alertas activas">
+      <div class="ej-label" role="note">FLEX: 1</div>
+      <div class="alert-panel-header">
+        <h2>🔔 ALERTAS ACTIVAS</h2>
+        <span class="alert-count-badge" aria-label="2 alertas activas">2</span>
+      </div>
+      <ul class="alert-list" aria-label="Lista de alertas">
+        <li class="alert-item alert-critical">
+          <span class="alert-icon" aria-hidden="true">⚠</span>
+          <span>Presión baja — Calle 2</span>
+        </li>
+        <li class="alert-item alert-warning">
+          <span class="alert-icon" aria-hidden="true">⚡</span>
+          <span>Fluctuación detectada</span>
+        </li>
+        <li class="alert-item alert-ok">
+          <span class="alert-icon" aria-hidden="true">✓</span>
+          <span>Cloro en rango normal</span>
+        </li>
+        <li class="alert-item alert-ok">
+          <span class="alert-icon" aria-hidden="true">✓</span>
+          <span>Tanque Principal OK</span>
+        </li>
+      </ul>
+      <div class="alert-countdown">
+        <p>Próxima actualización</p>
+        <span class="countdown-time">00:47</span>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="dashboard-footer">
+    <span>AcueductosIoT Dashboard v2.4.1</span>
+    <span aria-hidden="true">·</span>
+    <span>BSVS Monitoring Core</span>
+    <span aria-hidden="true">·</span>
+    <span>ISW-521 Lab3</span>
+  </footer>
+
+</body>
+</html>

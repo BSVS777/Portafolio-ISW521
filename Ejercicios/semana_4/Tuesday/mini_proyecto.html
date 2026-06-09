@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Layout Flexbox</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar,
+    .footer {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      background: #222;
+      color: white;
+    }
+
+    .navbar {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .wrapper {
+      display: flex;
+      min-height: 400px;
+    }
+
+    .sidebar,
+    .panel {
+      flex: 1;
+      padding: 20px;
+      background: #ddd;
+    }
+
+    .contenido {
+      flex: 3;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    .footer div {
+      flex: 1;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div>Logo</div>
+
+    <div class="links">
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Contacto</a>
+    </div>
+
+    <button>CTA</button>
+  </nav>
+
+  <main class="wrapper">
+    <aside class="sidebar">Sidebar</aside>
+
+    <section class="contenido">
+      Contenido principal
+    </section>
+
+    <aside class="panel">Panel</aside>
+  </main>
+
+  <footer class="footer">
+    <div>Columna 1</div>
+    <div>Columna 2</div>
+    <div>Columna 3</div>
+  </footer>
+
+</body>
+</html>
