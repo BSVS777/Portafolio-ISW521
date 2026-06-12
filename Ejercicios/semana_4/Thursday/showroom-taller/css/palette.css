@@ -1,0 +1,109 @@
+/* ----- Paint palette section ----- */
+.paint-palette {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  box-shadow: var(--shadow-card);
+}
+
+.palette-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.palette-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-5);
+  flex: 1;
+}
+
+/* ----- Animation per list item ----- */
+.palette-list > li {
+  opacity: 0;
+  animation: floatIn 0.4s ease forwards;
+}
+
+.palette-list > li:nth-child(1) { animation-delay: 0.00s; }
+.palette-list > li:nth-child(2) { animation-delay: 0.06s; }
+.palette-list > li:nth-child(3) { animation-delay: 0.12s; }
+.palette-list > li:nth-child(4) { animation-delay: 0.18s; }
+.palette-list > li:nth-child(5) { animation-delay: 0.24s; }
+.palette-list > li:nth-child(6) { animation-delay: 0.30s; }
+.palette-list > li:nth-child(7) { animation-delay: 0.36s; }
+.palette-list > li:nth-child(8) { animation-delay: 0.42s; }
+.palette-list > li:nth-child(9) { animation-delay: 0.48s; }
+
+/* ----- Swatch label ----- */
+.paint-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.paint-swatch:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.swatch-dot {
+  display: block;
+  width: clamp(28px, 3.5vw, 40px);
+  height: clamp(28px, 3.5vw, 40px);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.swatch-name {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+}
+
+/* ----- Dot colors ----- */
+.swatch-red    .swatch-dot { background: var(--car-color-red); }
+.swatch-white  .swatch-dot { background: var(--car-color-white); }
+.swatch-black  .swatch-dot { background: var(--car-color-black); border-color: var(--color-border); }
+.swatch-blue   .swatch-dot { background: var(--car-color-blue); }
+.swatch-silver .swatch-dot { background: var(--car-color-silver); }
+.swatch-green  .swatch-dot { background: var(--car-color-green); }
+.swatch-gray   .swatch-dot { background: var(--car-color-gray); }
+.swatch-orange .swatch-dot { background: var(--car-color-orange); }
+.swatch-pearl  .swatch-dot { background: var(--car-color-pearl); }
+
+/* ----- Hover ----- */
+.paint-swatch:hover .swatch-dot {
+  transform: scale(1.12);
+}
+
+.paint-swatch:hover .swatch-name {
+  color: var(--color-text);
+}
+
+/* ----- @keyframes floatIn ----- */
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

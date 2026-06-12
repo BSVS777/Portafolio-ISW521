@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Style CR — Showroom Interactivo</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/palette.css">
+  <link rel="stylesheet" href="css/interactions.css">
+</head>
+<body>
+
+  <!--
+    Global state controllers.
+    Must precede .app so the general sibling selector (#id:checked ~ .app) reaches it.
+    Labels elsewhere in the UI reference these via for="id".
+  -->
+
+  <input type="radio" name="car-model" id="model-corolla" hidden checked>
+  <input type="radio" name="car-model" id="model-hilux" hidden>
+
+  <input type="radio" name="car-angle" id="angle-front" hidden checked>
+  <input type="radio" name="car-angle" id="angle-side" hidden>
+  <input type="radio" name="car-angle" id="angle-rear" hidden>
+
+  <input type="radio" name="paint-color" id="color-red" hidden checked>
+  <input type="radio" name="paint-color" id="color-white" hidden>
+  <input type="radio" name="paint-color" id="color-black" hidden>
+  <input type="radio" name="paint-color" id="color-blue" hidden>
+  <input type="radio" name="paint-color" id="color-silver" hidden>
+  <input type="radio" name="paint-color" id="color-green" hidden>
+  <input type="radio" name="paint-color" id="color-gray" hidden>
+  <input type="radio" name="paint-color" id="color-orange" hidden>
+  <input type="radio" name="paint-color" id="color-pearl" hidden>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="brand-name">Auto Style CR</span>
+      <span class="brand-tagline">Enderezado &amp; Pintura de Precisión</span>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="showroom-grid">
+
+      <!-- Sidebar: model + angle selector -->
+      <aside class="selector-panel">
+
+        <div class="selector-group">
+          <h2 class="selector-label">Modelo</h2>
+          <div class="model-list">
+            <label class="model-option" for="model-corolla">
+              <span class="model-name">Corolla GR</span>
+              <span class="model-sub">Sedán 2024</span>
+            </label>
+            <label class="model-option" for="model-hilux">
+              <span class="model-name">Hilux 4×4 SR</span>
+              <span class="model-sub">Pickup 2024</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="selector-group">
+          <h2 class="selector-label">Ángulo</h2>
+          <div class="angle-list">
+            <label class="angle-option" for="angle-front">Frente</label>
+            <label class="angle-option" for="angle-side">Perfil lateral</label>
+            <label class="angle-option" for="angle-rear">Parte trasera</label>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Central vehicle display -->
+      <section class="vehicle-panel">
+        <div class="vehicle-stage">
+
+          <div class="vehicle-display corolla-display" role="img" aria-label="Toyota Corolla GR"></div>
+          <div class="vehicle-display hilux-display" role="img" aria-label="Toyota Hilux 4×4 SR"></div>
+
+        </div>
+      </section>
+
+      <!-- Quotation panel -->
+      <aside class="quote-panel">
+        <h2 class="quote-title">Cotización estimada</h2>
+
+        <div class="quote-card quote-corolla">
+          <p class="quote-model-name">Toyota Corolla GR</p>
+          <ul class="quote-items">
+            <li class="quote-item">
+              <span class="quote-concept">Enderezado capó</span>
+              <span class="quote-amount">₡85.000</span>
+            </li>
+            <li class="quote-item">
+              <span class="quote-concept">Pintura completa</span>
+              <span class="quote-amount">₡320.000</span>
+            </li>
+            <li class="quote-item">
+              <span class="quote-concept">Masilla y lijado</span>
+              <span class="quote-amount">₡45.000</span>
+            </li>
+          </ul>
+          <div class="quote-total">
+            <span class="quote-total-label">Total estimado</span>
+            <span class="quote-total-amount">₡478.000</span>
+          </div>
+        </div>
+
+        <div class="quote-card quote-hilux">
+          <p class="quote-model-name">Toyota Hilux 4×4 SR</p>
+          <ul class="quote-items">
+            <li class="quote-item">
+              <span class="quote-concept">Enderezado lateral</span>
+              <span class="quote-amount">₡120.000</span>
+            </li>
+            <li class="quote-item">
+              <span class="quote-concept">Pintura completa</span>
+              <span class="quote-amount">₡420.000</span>
+            </li>
+            <li class="quote-item">
+              <span class="quote-concept">Masilla y lijado</span>
+              <span class="quote-amount">₡65.000</span>
+            </li>
+          </ul>
+          <div class="quote-total">
+            <span class="quote-total-label">Total estimado</span>
+            <span class="quote-total-amount">₡635.000</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Paint palette -->
+      <section class="paint-palette">
+        <h2 class="palette-title">Color de pintura</h2>
+        <ul class="palette-list">
+          <li><label class="paint-swatch swatch-red"    for="color-red">
+            <span class="swatch-dot"></span><span class="swatch-name">Rojo</span>
+          </label></li>
+          <li><label class="paint-swatch swatch-white"  for="color-white">
+            <span class="swatch-dot"></span><span class="swatch-name">Blanco</span>
+          </label></li>
+          <li><label class="paint-swatch swatch-black"  for="color-black">
+            <span class="swatch-dot"></span><span class="swatch-name">Negro</span>
+          </label></li>
+          <li><label class="paint-swatch swatch-blue"   for="color-blue">
+            <span class="swatch-dot"></span><span class="swatch-name">Azul</span>
+          </label></li>
+          <li><label class="paint-swatch swatch-silver" for="color-silver">
+            <span class="swatch-dot"></span><span class="swatch-name">Plata</span>
+          </label></li>
+          <li><label class="paint-swatch swatch-green"  for="color-green">
+            <span class="swatch-dot"></span><span class="swatch-name">Verde</span>
+          </label></li>
+          <li><label class="paint-swatch swatch-gray"   for="color-gray">
+            <span class="swatch-dot"></span><span class="swatch-name">Gris</span>
+          </label></li>
+          <li><label class="paint-swatch swatch-orange" for="color-orange">
+            <span class="swatch-dot"></span><span class="swatch-name">Naranja</span>
+          </label></li>
+          <li><label class="paint-swatch swatch-pearl"  for="color-pearl">
+            <span class="swatch-dot"></span><span class="swatch-name">Perla</span>
+          </label></li>
+        </ul>
+      </section>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Auto Style CR &mdash; Taller de Enderezado y Pintura &mdash; ISW-521</p>
+  </footer>
+
+</body>
+</html>

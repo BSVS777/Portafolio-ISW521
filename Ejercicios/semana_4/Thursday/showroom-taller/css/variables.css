@@ -1,0 +1,60 @@
+:root {
+  /* Surfaces */
+  --color-bg:           #050711;
+  --color-surface:      #101325;
+  --color-surface-soft: #171a30;
+  --color-border:       #2a2f4a;
+
+  /* Text */
+  --color-text:  #f4f6fb;
+  --color-muted: #8c93ad;
+
+  /* Accent */
+  --color-accent:        #e63946;
+  --color-accent-strong: #ff3b4f;
+
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-card:    0 2px 12px rgba(0, 0, 0, 0.45);
+  --shadow-vehicle: 0 8px 40px rgba(0, 0, 0, 0.65);
+
+  /* Typography */
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Cascadia Code', 'Consolas', monospace;
+
+  /* Fluid text */
+  --text-xs:   clamp(0.65rem,  1.1vw, 0.75rem);
+  --text-sm:   clamp(0.75rem,  1.4vw, 0.875rem);
+  --text-base: clamp(0.875rem, 1.8vw, 1rem);
+  --text-lg:   clamp(1rem,     2.2vw, 1.25rem);
+  --text-xl:   clamp(1.125rem, 2.5vw, 1.5rem);
+
+  /* Active car color — overridden by :checked selectors in interactions.css */
+  --car-color: #c0392b;
+
+  /* Paint palette values */
+  --car-color-red:    #c0392b;
+  --car-color-white:  #eeeeee;
+  --car-color-black:  #1a1a1a;
+  --car-color-blue:   #1a4b8c;
+  --car-color-silver: #a0a3ad;
+  --car-color-green:  #2d6a4f;
+  --car-color-gray:   #5a5c62;
+  --car-color-orange: #c94a0a;
+  --car-color-pearl:  #f0eadc;
+}

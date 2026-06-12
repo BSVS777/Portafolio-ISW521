@@ -1,0 +1,166 @@
+/*
+  Radio Button Hack — all interactivity via :checked ~ .app
+  No JavaScript. No @media. No onclick.
+  Pattern: #radio-id:checked ~ .app [descendant]
+
+  Image swap pattern:
+    #angle-X:checked ~ #color-Y:checked ~ .app .MODEL-display
+  Both angle and color inputs must precede .app in the DOM (they do).
+  Radio buttons ensure mutual exclusivity — only one rule fires per display.
+*/
+
+/* ===== MODEL: vehicle visibility ===== */
+
+.vehicle-display {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#model-corolla:checked ~ .app .corolla-display,
+#model-hilux:checked   ~ .app .hilux-display {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== MODEL: sidebar active state ===== */
+
+#model-corolla:checked ~ .app label[for="model-corolla"],
+#model-hilux:checked   ~ .app label[for="model-hilux"] {
+  background: var(--color-surface-soft);
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+#model-corolla:checked ~ .app label[for="model-corolla"] .model-name,
+#model-hilux:checked   ~ .app label[for="model-hilux"]   .model-name {
+  color: var(--color-accent);
+}
+
+/* ===== VEHICLE IMAGE SWAP ===== */
+
+/* -- Corolla / Front -- */
+#angle-front:checked ~ #color-red:checked    ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-red.jpeg'); }
+#angle-front:checked ~ #color-white:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-white.jpeg'); }
+#angle-front:checked ~ #color-black:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-black.jpeg'); }
+#angle-front:checked ~ #color-blue:checked   ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-blue.jpeg'); }
+#angle-front:checked ~ #color-silver:checked ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-silver.jpeg'); }
+#angle-front:checked ~ #color-green:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-green.jpeg'); }
+#angle-front:checked ~ #color-gray:checked   ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-gray.jpeg'); }
+#angle-front:checked ~ #color-orange:checked ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-orange.jpeg'); }
+#angle-front:checked ~ #color-pearl:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-front-pearl.jpeg'); }
+
+/* -- Corolla / Side -- */
+#angle-side:checked ~ #color-red:checked    ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-red.jpeg'); }
+#angle-side:checked ~ #color-white:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-white.jpeg'); }
+#angle-side:checked ~ #color-black:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-black.jpeg'); }
+#angle-side:checked ~ #color-blue:checked   ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-blue.jpeg'); }
+#angle-side:checked ~ #color-silver:checked ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-silver.jpeg'); }
+#angle-side:checked ~ #color-green:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-green.jpeg'); }
+#angle-side:checked ~ #color-gray:checked   ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-gray.jpeg'); }
+#angle-side:checked ~ #color-orange:checked ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-orange.jpeg'); }
+#angle-side:checked ~ #color-pearl:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-side-pearl.jpeg'); }
+
+/* -- Corolla / Rear -- */
+#angle-rear:checked ~ #color-red:checked    ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-red.jpeg'); }
+#angle-rear:checked ~ #color-white:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-white.jpeg'); }
+#angle-rear:checked ~ #color-black:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-black.jpeg'); }
+#angle-rear:checked ~ #color-blue:checked   ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-blue.jpeg'); }
+#angle-rear:checked ~ #color-silver:checked ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-silver.jpeg'); }
+#angle-rear:checked ~ #color-green:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-green.jpeg'); }
+#angle-rear:checked ~ #color-gray:checked   ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-gray.jpeg'); }
+#angle-rear:checked ~ #color-orange:checked ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-orange.jpeg'); }
+#angle-rear:checked ~ #color-pearl:checked  ~ .app .corolla-display { background-image: url('../assets/img/corolla-rear-pearl.jpeg'); }
+
+/* -- Hilux / Front -- */
+#angle-front:checked ~ #color-red:checked    ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-red.jpeg'); }
+#angle-front:checked ~ #color-white:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-white.jpeg'); }
+#angle-front:checked ~ #color-black:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-black.jpeg'); }
+#angle-front:checked ~ #color-blue:checked   ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-blue.jpeg'); }
+#angle-front:checked ~ #color-silver:checked ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-silver.jpeg'); }
+#angle-front:checked ~ #color-green:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-green.jpeg'); }
+#angle-front:checked ~ #color-gray:checked   ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-gray.jpeg'); }
+#angle-front:checked ~ #color-orange:checked ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-orange.jpeg'); }
+#angle-front:checked ~ #color-pearl:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-front-pearl.jpeg'); }
+
+/* -- Hilux / Side -- */
+#angle-side:checked ~ #color-red:checked    ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-red.jpeg'); }
+#angle-side:checked ~ #color-white:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-white.jpeg'); }
+#angle-side:checked ~ #color-black:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-black.jpeg'); }
+#angle-side:checked ~ #color-blue:checked   ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-blue.jpeg'); }
+#angle-side:checked ~ #color-silver:checked ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-silver.jpeg'); }
+#angle-side:checked ~ #color-green:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-green.jpeg'); }
+#angle-side:checked ~ #color-gray:checked   ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-gray.jpeg'); }
+#angle-side:checked ~ #color-orange:checked ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-orange.jpeg'); }
+#angle-side:checked ~ #color-pearl:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-side-pearl.jpeg'); }
+
+/* -- Hilux / Rear -- */
+#angle-rear:checked ~ #color-red:checked    ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-red.jpeg'); }
+#angle-rear:checked ~ #color-white:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-white.jpeg'); }
+#angle-rear:checked ~ #color-black:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-black.jpeg'); }
+#angle-rear:checked ~ #color-blue:checked   ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-blue.jpeg'); }
+#angle-rear:checked ~ #color-silver:checked ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-silver.jpeg'); }
+#angle-rear:checked ~ #color-green:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-green.jpeg'); }
+#angle-rear:checked ~ #color-gray:checked   ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-gray.jpeg'); }
+#angle-rear:checked ~ #color-orange:checked ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-orange.jpeg'); }
+#angle-rear:checked ~ #color-pearl:checked  ~ .app .hilux-display { background-image: url('../assets/img/hilux-rear-pearl.jpeg'); }
+
+/* ===== ANGLE: sidebar active state ===== */
+
+#angle-front:checked ~ .app label[for="angle-front"],
+#angle-side:checked  ~ .app label[for="angle-side"],
+#angle-rear:checked  ~ .app label[for="angle-rear"] {
+  background: var(--color-surface-soft);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+/* ===== COLOR: update --car-color variable ===== */
+
+#color-red:checked    ~ .app { --car-color: var(--car-color-red); }
+#color-white:checked  ~ .app { --car-color: var(--car-color-white); }
+#color-black:checked  ~ .app { --car-color: var(--car-color-black); }
+#color-blue:checked   ~ .app { --car-color: var(--car-color-blue); }
+#color-silver:checked ~ .app { --car-color: var(--car-color-silver); }
+#color-green:checked  ~ .app { --car-color: var(--car-color-green); }
+#color-gray:checked   ~ .app { --car-color: var(--car-color-gray); }
+#color-orange:checked ~ .app { --car-color: var(--car-color-orange); }
+#color-pearl:checked  ~ .app { --car-color: var(--car-color-pearl); }
+
+/* ===== COLOR: active swatch ring ===== */
+
+#color-red:checked    ~ .app .swatch-red    .swatch-dot,
+#color-white:checked  ~ .app .swatch-white  .swatch-dot,
+#color-black:checked  ~ .app .swatch-black  .swatch-dot,
+#color-blue:checked   ~ .app .swatch-blue   .swatch-dot,
+#color-silver:checked ~ .app .swatch-silver .swatch-dot,
+#color-green:checked  ~ .app .swatch-green  .swatch-dot,
+#color-gray:checked   ~ .app .swatch-gray   .swatch-dot,
+#color-orange:checked ~ .app .swatch-orange .swatch-dot,
+#color-pearl:checked  ~ .app .swatch-pearl  .swatch-dot {
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 3px rgba(244, 246, 251, 0.18);
+  transform: scale(1.18);
+}
+
+#color-red:checked    ~ .app .swatch-red    .swatch-name,
+#color-white:checked  ~ .app .swatch-white  .swatch-name,
+#color-black:checked  ~ .app .swatch-black  .swatch-name,
+#color-blue:checked   ~ .app .swatch-blue   .swatch-name,
+#color-silver:checked ~ .app .swatch-silver .swatch-name,
+#color-green:checked  ~ .app .swatch-green  .swatch-name,
+#color-gray:checked   ~ .app .swatch-gray   .swatch-name,
+#color-orange:checked ~ .app .swatch-orange .swatch-name,
+#color-pearl:checked  ~ .app .swatch-pearl  .swatch-name {
+  color: var(--color-text);
+}
+
+/* ===== QUOTE: show active model card ===== */
+
+.quote-card {
+  display: none;
+}
+
+#model-corolla:checked ~ .app .quote-corolla,
+#model-hilux:checked   ~ .app .quote-hilux {
+  display: flex;
+}
