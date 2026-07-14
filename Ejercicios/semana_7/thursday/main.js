@@ -30,14 +30,17 @@
 // estudiantes.map(e=>`${e.nombre}(${e.carnet}))`.toUpperCase());
 
 
-const estudiantes = [
+// const estudiantes = [
 
-    {nombre: "Ana", promedio : "85"},
-    {nombre: "Juan", promedio : "90"},
-    {nombre: "Maria", promedio : "78"}
+//     {nombre: "Ana", promedio : "85"},
+//     {nombre: "Juan", promedio : "90"},
+//     {nombre: "Maria", promedio : "78"}
 
-]
+// ]
 
-resultado = estudiantes.filter((estudiante) => estudiante.promedio >= 80).map((estudiante) => estudiante.nombre);
-console.log(resultado);
+// resultado = estudiantes.filter((estudiante) => estudiante.promedio >= 80).map((estudiante) => estudiante.nombre);
+// console.log(resultado);
+
+
+
 
