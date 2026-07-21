@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  displayName  String
+  avatarUrl    String?
+  phone        String?  @unique
+  passwordHash String?
+  status       String?
+  lastSeenAt   DateTime?
+  createdAt    DateTime @default(now())
+
+  memberships ChatParticipant[]
+  messages    Message[]
+  reactions   Reaction[]
+}
+
+model Chat {
+  id        String   @id @default(uuid())
+  isGroup   Boolean  @default(false)
+  title     String?
+  avatarUrl String?
+  createdAt DateTime @default(now())
+
+  participants ChatParticipant[]
+  messages     Message[]
+}
+
+model ChatParticipant {
+  chatId            String
+  userId            String
+  role              String    @default("member") // "member" | "admin"
+  pinnedAt          DateTime?
+  lastReadMessageId String?
+  joinedAt          DateTime  @default(now())
+
+  chat Chat @relation(fields: [chatId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+
+  @@id([chatId, userId])
+}
+
+model Message {
+  id                String    @id @default(uuid())
+  tempId            String?
+  chatId            String
+  senderId          String
+  type              String    // "text" | "image" | "audio" | "document" | "system"
+  body              String?
+  mediaUrl          String?
+  mediaMeta         Json?
+  replyToId         String?
+  providerMessageId String?   @unique
+  deliveryStatus    String    @default("sending") // sending|sent|delivered|read|failed
+  editedAt          DateTime?
+  deletedForAll     Boolean   @default(false)
+  createdAt         DateTime  @default(now())
+
+  chat      Chat      @relation(fields: [chatId], references: [id])
+  sender    User      @relation(fields: [senderId], references: [id])
+  replyTo   Message?  @relation("Replies", fields: [replyToId], references: [id])
+  replies   Message[] @relation("Replies")
+  reactions Reaction[]
+
+  @@index([chatId, createdAt])
+}
+
+model Reaction {
+  id        String   @id @default(uuid())
+  messageId String
+  userId    String
+  emoji     String
+  createdAt DateTime @default(now())
+
+  message Message @relation(fields: [messageId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
+
+  @@unique([messageId, userId, emoji])
+}
+
+model ProviderSession {
+  id          String   @id @default(uuid())
+  provider    String   // "cloud_api" | "baileys"
+  label       String?
+  credentials Json?    // encrypted at rest
+  status      String   @default("disconnected")
+  updatedAt   DateTime @updatedAt
+}
+
+model WebhookEvent {
+  id          String    @id @default(uuid())
+  provider    String
+  rawPayload  Json
+  processedAt DateTime?
+  createdAt   DateTime  @default(now())
+}

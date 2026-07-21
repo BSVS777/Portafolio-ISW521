@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Sender</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app-shell" v-cloak>
+      <aside class="sidebar">
+        <header class="brand">
+          <div class="brand-mark">WA</div>
+          <div>
+            <strong>WhatsApp Sender</strong>
+            <p>{{ connectionLabel }}</p>
+          </div>
+        </header>
+
+        <section class="status-panel">
+          <span class="status-dot" :class="{ online: status.connected }"></span>
+          <div>
+            <strong>{{ accountLabel }}</strong>
+            <p v-if="status.lastError">{{ status.lastError }}</p>
+            <p v-else>Sesion local con Baileys</p>
+          </div>
+        </section>
+
+        <section class="qr-panel">
+          <img v-if="status.qrDataUrl" :src="status.qrDataUrl" alt="QR para vincular WhatsApp" />
+          <div v-else class="empty-qr">
+            <strong>{{ status.connected ? 'Cuenta conectada' : 'Esperando QR' }}</strong>
+            <p>Abre WhatsApp, vincula un dispositivo y escanea este codigo cuando aparezca.</p>
+          </div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="workspace-header">
+          <div>
+            <p class="eyebrow">Envio directo</p>
+            <h1>Enviar mensaje a un numero real</h1>
+          </div>
+          <button type="button" @click="refreshStatus">Actualizar</button>
+        </header>
+
+        <form class="send-form" @submit.prevent="sendMessage">
+          <label for="to">Numero con codigo de pais</label>
+          <input
+            id="to"
+            v-model.trim="form.to"
+            inputmode="tel"
+            placeholder="50688887777"
+            autocomplete="tel"
+          />
+
+          <label for="message">Mensaje</label>
+          <textarea
+            id="message"
+            v-model.trim="form.message"
+            maxlength="4096"
+            rows="8"
+            placeholder="Escribe el texto que se enviara por WhatsApp"
+          ></textarea>
+
+          <div class="feedback error" v-if="error">{{ error }}</div>
+          <div class="feedback success" v-if="success">{{ success }}</div>
+
+          <button type="submit" :disabled="!canSend">
+            {{ sending ? 'Enviando...' : 'Enviar por WhatsApp' }}
+          </button>
+        </form>
+
+        <section class="activity">
+          <h2>Actividad</h2>
+          <p v-if="!events.length">Sin eventos recientes.</p>
+          <ol v-else>
+            <li v-for="event in events" :key="event.id">
+              <time>{{ event.at }}</time>
+              <span>{{ event.text }}</span>
+            </li>
+          </ol>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

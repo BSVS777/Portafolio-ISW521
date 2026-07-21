@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador sin framework</title>
+  <style>
+    body { font-family: sans-serif; max-width: 400px; margin: 2rem auto; }
+    header { display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding-bottom: .5rem; }
+    #valor { font-size: 2rem; }
+    button { margin-right: .5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <span>Mi App</span>
+    <span>Clicks: <strong id="contadorHeader">0</strong></span>
+  </header>
+
+  <p id="valor">0</p>
+  <button id="btnSumar">Sumar</button>
+  <button id="btnReiniciar">Reiniciar</button>
+
+  <ul id="historial"></ul>
+
+  <script>
+    // Sin framework: hay que sincronizar todo a mano
+    let contador = 0;
+
+    document.getElementById("btnSumar").addEventListener("click", () => {
+      contador++;
+      document.getElementById("valor").innerText = contador;
+      document.getElementById("historial").innerHTML += `<li>Click #${contador}</li>`;
+      document.getElementById("contadorHeader").innerText = contador;
+    });
+
+    document.getElementById("btnReiniciar").addEventListener("click", () => {
+      contador = 0;
+      document.getElementById("valor").innerText = contador;
+      document.getElementById("historial").innerHTML = "";
+      document.getElementById("contadorHeader").innerText = contador;
+    });
+  </script>
+</body>
+</html>
